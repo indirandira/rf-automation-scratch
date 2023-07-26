@@ -1,5 +1,5 @@
 
 etc/conf/conf.yaml
 
-result/**
+./result/**
 output/**

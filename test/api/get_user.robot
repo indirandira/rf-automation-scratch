@@ -4,10 +4,10 @@ Resource        ${EXECDIR}/common/api.robot
 
 
 *** Variables ***
-${Base_URL}         https://reqres.in/
+${uri_user}         api/user
 
 *** Test Cases *** 
 GET API User
-    create session          Get_user        ${Base_URL}
-    ${response}=   GET On Session             Get_user             api/users
-    log to console      ${response}    
+    Start API Connection                     
+        ${URI}=     Set Variable        ${uri_user}
+        ${response}=        Send GET Request API        ${URI}      ${none}
