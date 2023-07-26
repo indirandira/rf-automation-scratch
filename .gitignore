@@ -1,1 +1,5 @@
-./result*
+
+etc/conf/conf.yaml
+
+result/**
+output/**
