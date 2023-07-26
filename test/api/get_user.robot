@@ -1,7 +1,6 @@
 *** Settings *** 
 Documentation       API Test
-Resource        ${EXECDIR}/common/config.robot
-Resource        ${EXECDIR}/common/library.robot
+Resource        ${EXECDIR}/common/api.robot
 
 
 *** Variables ***
