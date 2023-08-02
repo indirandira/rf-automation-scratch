@@ -1,5 +1,3 @@
-
 etc\conf\conf.yaml
-
-.\result\**
-output\**
+/result/**
+output/**
