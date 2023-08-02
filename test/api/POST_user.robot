@@ -14,3 +14,8 @@ POST API User
     User Define Headers
         ${payload}=             Create Dictionary         name=ter      job=Engineer  
         ${response}=            Send POST Request API     ${URI}        ${params}              ${payload}          
+
+        ${status.code}=     convert to string       ${response.status_code}
+        should be equal      ${status.code}     201
+        ${res_body}=            convert to string       ${response.content}
+        should contain  ${res_body}         ter
