@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1 (Python 3.8.10 on win32)" generated="20230802 16:47:34.482" rpa="false" schemaversion="4">
+<suite id="s1" name="POST user" source="C:\Users\Adhi Ernest\Documents\Capital\Automation\rf-automation-scratch\test\api\POST_user.robot">
+<test id="s1-t1" name="POST API User" line="11">
+<kw name="Start API Connection" library="api">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>${alias}</arg>
+<arg>${base_url_service.user}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230802 16:47:36.295" level="INFO">Creating Session using : alias=service_name, url=https://reqres.in/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230802 16:47:36.295" endtime="20230802 16:47:36.295"/>
+</kw>
+<status status="PASS" starttime="20230802 16:47:36.295" endtime="20230802 16:47:36.295"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${URI}</var>
+<arg>${uri_user}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230802 16:47:36.295" level="INFO">${URI} = api/users</msg>
+<status status="PASS" starttime="20230802 16:47:36.295" endtime="20230802 16:47:36.295"/>
+</kw>
+<kw name="User Define Headers" library="POST_user">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{headers}</var>
+<arg>Accept=application/json</arg>
+<arg>Content-Type=application/json</arg>
+<arg>x-app-debug=true</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230802 16:47:36.295" level="INFO">&amp;{headers} = { Accept=application/json | Content-Type=application/json | x-app-debug=true }</msg>
+<status status="PASS" starttime="20230802 16:47:36.295" endtime="20230802 16:47:36.295"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${headers}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230802 16:47:36.295" level="INFO">${headers} = {'Accept': 'application/json', 'Content-Type': 'application/json', 'x-app-debug': 'true'}</msg>
+<status status="PASS" starttime="20230802 16:47:36.295" endtime="20230802 16:47:36.295"/>
+</kw>
+<status status="PASS" starttime="20230802 16:47:36.295" endtime="20230802 16:47:36.295"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${payload}</var>
+<arg>name=ter</arg>
+<arg>job=Engineer</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230802 16:47:36.295" level="INFO">${payload} = {'name': 'ter', 'job': 'Engineer'}</msg>
+<status status="PASS" starttime="20230802 16:47:36.295" endtime="20230802 16:47:36.295"/>
+</kw>
+<kw name="Send POST Request API" library="api">
+<var>${response}</var>
+<arg>${URI}</arg>
+<arg>${params}</arg>
+<arg>${payload}</arg>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>${alias}</arg>
+<arg>${URI}</arg>
+<arg>${params}</arg>
+<arg>${payload}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20230802 16:47:37.249" level="INFO">POST Request : url=https://reqres.in/api/users 
+ path_url=/api/users 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'x-app-debug': 'true', 'Content-Length': '34'} 
+ body=b'{"name": "ter", "job": "Engineer"}' 
+ </msg>
+<msg timestamp="20230802 16:47:37.249" level="INFO">POST Response : url=https://reqres.in/api/users 
+ status=201, reason=Created 
+ headers={'Date': 'Wed, 02 Aug 2023 09:47:36 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '81', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"51-Ud3OndxK+oRmXdwEyPrXZpGul2Q"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=L8D91FoNMUYSdLIOpJ67hZwxjpWqoTO6PhLihtP9rz%2BQCatckuBCjVezyb6VUhFZpZe1%2BfaJjHjCTL83R%2FnASV6Z56MfOv112%2BwysXwk3wsEPxDzvz5lYHn9sg%3D%3D"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}', 'Server': 'cloudflare', 'CF-RAY': '7f05667ef8a13fff-SIN'} 
+ body={"name":"ter","job":"Engineer","id":"655","createdAt":"2023-08-02T09:47:36.418Z"} 
+ </msg>
+<msg timestamp="20230802 16:47:37.249" level="INFO">C:\Users\Adhi Ernest\.virtualenvs\rf-automation-scratch-xoZDDNNL\lib\site-packages\urllib3\connectionpool.py:1056: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20230802 16:47:37.249" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20230802 16:47:36.295" endtime="20230802 16:47:37.249"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230802 16:47:37.256" level="INFO">{"name":"ter","job":"Engineer","id":"655","createdAt":"2023-08-02T09:47:36.418Z"}</msg>
+<status status="PASS" starttime="20230802 16:47:37.256" endtime="20230802 16:47:37.256"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${response.headers}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230802 16:47:37.256" level="INFO">{'Date': 'Wed, 02 Aug 2023 09:47:36 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '81', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"51-Ud3OndxK+oRmXdwEyPrXZpGul2Q"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=L8D91FoNMUYSdLIOpJ67hZwxjpWqoTO6PhLihtP9rz%2BQCatckuBCjVezyb6VUhFZpZe1%2BfaJjHjCTL83R%2FnASV6Z56MfOv112%2BwysXwk3wsEPxDzvz5lYHn9sg%3D%3D"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}', 'Server': 'cloudflare', 'CF-RAY': '7f05667ef8a13fff-SIN'}</msg>
+<status status="PASS" starttime="20230802 16:47:37.256" endtime="20230802 16:47:37.256"/>
+</kw>
+<msg timestamp="20230802 16:47:37.256" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20230802 16:47:36.295" endtime="20230802 16:47:37.256"/>
+</kw>
+<status status="PASS" starttime="20230802 16:47:36.295" endtime="20230802 16:47:37.256"/>
+</test>
+<doc>API Test POST Request</doc>
+<status status="PASS" starttime="20230802 16:47:34.498" endtime="20230802 16:47:37.264"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="POST user">POST user</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

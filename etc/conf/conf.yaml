@@ -1,0 +1,3 @@
+base_url_service:
+  authentication: "${AUTHENTICATION_URL}"
+  user: "https://reqres.in/"
