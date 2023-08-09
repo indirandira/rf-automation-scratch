@@ -19,3 +19,4 @@ POST API User
         should be equal      ${status.code}     201
         ${res_body}=            convert to string       ${response.content}
         should contain  ${res_body}         ter
+             
