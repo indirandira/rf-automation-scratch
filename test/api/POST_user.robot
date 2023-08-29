@@ -9,6 +9,7 @@ ${params}           ${none}
 
 *** Test Cases *** 
 POST API User
+    [tags]  Regression
     Start API Connection                     
         ${URI}=                 Set Variable             ${uri_user}
     User Define Headers

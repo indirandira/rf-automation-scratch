@@ -1,3 +1,4 @@
 base_url_service:
   authentication: "${AUTHENTICATION_URL}"
   user: "https://reqres.in/"
+  rest_heroku: "https://restful-booker.herokuapp.com/"

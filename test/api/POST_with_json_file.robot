@@ -11,6 +11,7 @@ ${json_default}     ${EXECDIR}/template/api/post_request_users.json
 
 *** Test Cases ***
 POST users with json path
+    [tags]  Regression
     ${URI}=             Set Variable        ${uri_user}
     ${json_file}=       Read JSON File From The Specified Path         ${json_default}
     ${payload}=         Create Dictionary           jf=${json_file}

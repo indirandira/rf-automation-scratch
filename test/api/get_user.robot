@@ -8,6 +8,7 @@ ${uri_user}         api/user
 
 *** Test Cases *** 
 GET API User
+    [tags]  Regression
     Start API Connection                     
         ${URI}=     Set Variable        ${uri_user}
         ${response}=        Send GET Request API        ${URI}      ${none}
